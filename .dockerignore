@@ -7,3 +7,5 @@
 !mobile_app/requirements.txt
 !mobile_app/static/
 !mobile_app/static/**
+
+!mobile_app/catalogue_editor.py

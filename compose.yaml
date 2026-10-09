@@ -17,7 +17,7 @@ services:
       - hf_token
     volumes:
       - history:/app/mobile_app/data
-      - ./catalogue:/catalogue:ro
+      - ./catalogue:/catalogue:rw
     expose:
       - '8001'
     read_only: true

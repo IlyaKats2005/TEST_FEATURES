@@ -3,3 +3,5 @@ TOKEN.txt
 mobile_app/data/
 **/__pycache__/
 *.pyc
+
+given_industrial_products.json.lock

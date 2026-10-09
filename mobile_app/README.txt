@@ -71,7 +71,9 @@ Prepare the directory read by the hosted app:
   cp given_industrial_products.json catalogue/given_industrial_products.json
 
 For production, edit catalogue/given_industrial_products.json. This directory is
-mounted read-only into the app, and its current contents are read per submission.
+mounted writable into the app, and its current contents are read per submission.
+For Linux Docker hosts, grant the container user (UID 10001) write access to this
+directory and its JSON file; atomic saves also create a lock and temporary file.
 The root JSON is the local-development file. Only use the one for your environment.
 
 Put your existing TOKEN.txt beside compose.yaml. It becomes a runtime Docker secret;
@@ -146,3 +148,25 @@ parallel users, per-user limits, legacy history, provider errors, and empty cata
 A separate real Gunicorn HTTP smoke test passed with temporary users and no model
 calls. Compose configuration validated. Docker image build, real TLS provisioning,
 phone installation and live HF calls have not been verified in this release.
+
+CATALOGUE STUDIO (OWNER ACCESS)
+==============================
+Accounts are regular users until explicitly granted catalogue-owner access.
+To create a separate admin login, run these commands locally (password is hidden):
+
+  python3 mobile_app/server.py --create-user admin
+  python3 mobile_app/catalogue_editor.py --owner admin
+
+For Docker, prefix both commands with: docker compose exec app
+Owners see Catalogue studio after signing in. The direct address is /catalogue-editor.
+Select a product, edit its identity, and add/remove/rename sections and fields.
+Groups and lists nest; text, numbers, booleans and unknown values retain their types.
+Drag section headers to reorder, or use arrow buttons (also works on phones).
+Save product updates the configured catalogue JSON file atomically.
+Backups are stored privately beside the history database in catalogue-backups/.
+The editor keeps a draft until saved; leaving with unsaved work asks for confirmation.
+Conflicting saves return an error instead of overwriting someone else's changes.
+Export the draft before reloading if another user or external edit changed the file.
+Running and historical assessments retain their original catalogue snapshots.
+The catalogue JSON is still the source of truth; no database migration is required
+for products. A separate catalogue_owners table controls editing privileges.

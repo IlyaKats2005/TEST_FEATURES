@@ -18,6 +18,7 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT.parent))
 import product_matcher as matcher
 from history import History
+from catalogue_editor import register_editor, is_owner
 
 COOKIE='pocketmatch_session'
 STATIC=ROOT/'static'
@@ -117,7 +118,7 @@ def create_app(service=None):
 
     @web.get('/<name>')
     def asset(name):
-        if name not in {'app.js','styles.css','sw.js','manifest.webmanifest','icon-192.png','icon-512.png'}:return error('Not found.',404)
+        if name not in {'app.js','styles.css','sw.js','manifest.webmanifest','icon-192.png','icon-512.png','catalogue-editor.js','catalogue-editor.css'}:return error('Not found.',404)
         return send_from_directory(STATIC,name)
 
     @web.post('/api/login')
@@ -142,7 +143,7 @@ def create_app(service=None):
         return response
 
     @web.get('/api/session')
-    def session():return jsonify(csrf=g.account['csrf'],username=g.account['username'],daily_limit=service.daily_limit)
+    def session():return jsonify(csrf=g.account['csrf'],username=g.account['username'],daily_limit=service.daily_limit,is_owner=is_owner(service.store,g.account))
 
     @web.post('/api/logout')
     def logout():
@@ -173,6 +174,7 @@ def create_app(service=None):
         except RuntimeError as exc:return error(str(exc),429)
         except (OSError,ValueError):return error('Cannot load the catalogue or save the request.',400)
         return jsonify(id=ident),202
+    register_editor(web, service, matcher)
     return web
 
 
