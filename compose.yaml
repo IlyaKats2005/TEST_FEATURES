@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: mobile_app/Dockerfile
+    restart: unless-stopped
+    init: true
+    environment:
+      PUBLIC_ORIGIN: https://${DOMAIN:?Set DOMAIN in .env}
+      HF_TOKEN_FILE: /run/secrets/hf_token
+      CATALOGUE_FILE: /catalogue/given_industrial_products.json
+      HISTORY_DB: /app/mobile_app/data/history.sqlite3
+      DAILY_REQUEST_LIMIT: ${DAILY_REQUEST_LIMIT:-10}
+      MAX_CONCURRENT_JOBS: ${MAX_CONCURRENT_JOBS:-2}
+      TRUST_CADDY_PROXY: '1'
+    secrets:
+      - hf_token
+    volumes:
+      - history:/app/mobile_app/data
+      - ./catalogue:/catalogue:ro
+    expose:
+      - '8001'
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in .env}
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    volumes:
+      - ./mobile_app/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+secrets:
+  hf_token:
+    file: ./TOKEN.txt
+volumes:
+  history:
+  caddy_data:
+  caddy_config:

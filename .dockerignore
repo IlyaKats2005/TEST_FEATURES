@@ -1,0 +1,9 @@
+**
+!product_matcher.py
+!given_industrial_products.json
+!mobile_app/
+!mobile_app/server.py
+!mobile_app/history.py
+!mobile_app/requirements.txt
+!mobile_app/static/
+!mobile_app/static/**

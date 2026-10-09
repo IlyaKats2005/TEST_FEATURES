@@ -1,0 +1,5 @@
+TOKEN.txt
+.env
+mobile_app/data/
+**/__pycache__/
+*.pyc

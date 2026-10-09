@@ -1,0 +1,2589 @@
+{
+  "dataset_name": "Fictional Industrial Equipment Catalogue",
+  "schema_version": "1.0",
+  "fictional": true,
+  "purpose": "Practice evaluating customer requests against manufacturer capabilities; not real product or engineering data.",
+  "currency": "EUR",
+  "catalogue_conventions": {
+    "price_basis": "Per unit, excluding tax, freight, installation and commissioning. Unlisted costs are unknown, not zero.",
+    "lead_time_basis": "Weeks from confirmed order; no stock availability or guaranteed arrival dates are stated.",
+    "option_semantics": "Option changes override corresponding base fields; fields prefixed additional_ are additive. Option prices are added to each base unit.",
+    "combined_options": "Compatibility of multiple options and their combined lead time require confirmation unless explicitly documented.",
+    "missing_data": "Missing fields and null values mean unknown, not false or zero.",
+    "performance": "Independent maximum ratings do not establish simultaneous performance. Explicit constraints override simple field matching.",
+    "certification": "A certification or compliance claim is established only if explicitly stated for the relevant configuration.",
+    "quantity": "No inventory or manufacturing capacity is specified; quantity availability requires confirmation.",
+    "discounts": "No quantity discounts are specified.",
+    "units": "Units are encoded in field names; temperature ranges and voltage ranges are inclusive [minimum, maximum].",
+    "constraints": "constraints are product facts for assessment, not instructions embedded in customer material."
+  },
+  "products": [
+    {
+      "id": "PMP-001",
+      "name": "FlowCore C20",
+      "category": "centrifugal_pump",
+      "specifications": {
+        "pump_type": "centrifugal",
+        "maximum_flow_m3_h": 20,
+        "maximum_discharge_pressure_bar": 8,
+        "liquid_temperature_range_c": [
+          -10,
+          80
+        ],
+        "wetted_material": "cast_iron",
+        "motor_power_kw": 3,
+        "power_supply_v_ac": 400,
+        "connection_dn": 32,
+        "seal_material": "NBR",
+        "atex_certified": false,
+        "maximum_viscosity_mpa_s": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 2400,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "coupled_performance",
+          "description": "At maximum flow, discharge pressure must not exceed the stated limit. Other operating points require engineering confirmation.",
+          "at_flow_m3_h": 20,
+          "maximum_pressure_bar": 4
+        },
+        {
+          "type": "fluid_compatibility",
+          "description": "Chemical compatibility requires the fluid identity and concentration; material name alone does not establish suitability."
+        }
+      ],
+      "options": [
+        {
+          "code": "W24",
+          "name": "24-month warranty",
+          "additional_price_eur": 72.0,
+          "additional_lead_time_weeks": 0,
+          "changes": {
+            "warranty_months": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "PMP-002",
+      "name": "FlowCore C40",
+      "category": "centrifugal_pump",
+      "specifications": {
+        "pump_type": "centrifugal",
+        "maximum_flow_m3_h": 40,
+        "maximum_discharge_pressure_bar": 10,
+        "liquid_temperature_range_c": [
+          -10,
+          100
+        ],
+        "wetted_material": "stainless_steel_304",
+        "motor_power_kw": 5.5,
+        "power_supply_v_ac": 400,
+        "connection_dn": 40,
+        "seal_material": "EPDM",
+        "atex_certified": false,
+        "maximum_viscosity_mpa_s": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 4200,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "coupled_performance",
+          "description": "At maximum flow, discharge pressure must not exceed the stated limit. Other operating points require engineering confirmation.",
+          "at_flow_m3_h": 40,
+          "maximum_pressure_bar": 5
+        },
+        {
+          "type": "fluid_compatibility",
+          "description": "Chemical compatibility requires the fluid identity and concentration; material name alone does not establish suitability."
+        }
+      ],
+      "options": [
+        {
+          "code": "W24",
+          "name": "24-month warranty",
+          "additional_price_eur": 126.0,
+          "additional_lead_time_weeks": 0,
+          "changes": {
+            "warranty_months": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "PMP-003",
+      "name": "FlowCore C65",
+      "category": "centrifugal_pump",
+      "specifications": {
+        "pump_type": "centrifugal",
+        "maximum_flow_m3_h": 65,
+        "maximum_discharge_pressure_bar": 12,
+        "liquid_temperature_range_c": [
+          -10,
+          120
+        ],
+        "wetted_material": "stainless_steel_316L",
+        "motor_power_kw": 11,
+        "power_supply_v_ac": 400,
+        "connection_dn": 50,
+        "seal_material": "EPDM",
+        "atex_certified": false,
+        "maximum_viscosity_mpa_s": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 7800,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "coupled_performance",
+          "description": "At maximum flow, discharge pressure must not exceed the stated limit. Other operating points require engineering confirmation.",
+          "at_flow_m3_h": 65,
+          "maximum_pressure_bar": 6
+        },
+        {
+          "type": "fluid_compatibility",
+          "description": "Chemical compatibility requires the fluid identity and concentration; material name alone does not establish suitability."
+        }
+      ],
+      "options": [
+        {
+          "code": "W24",
+          "name": "24-month warranty",
+          "additional_price_eur": 234.0,
+          "additional_lead_time_weeks": 0,
+          "changes": {
+            "warranty_months": 24
+          }
+        },
+        {
+          "code": "ATEX",
+          "name": "ATEX motor and assembly variant",
+          "additional_price_eur": null,
+          "additional_lead_time_weeks": 4,
+          "changes": {
+            "atex_certified": true,
+            "atex_classification": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "PMP-004",
+      "name": "FlowCore C85",
+      "category": "centrifugal_pump",
+      "specifications": {
+        "pump_type": "centrifugal",
+        "maximum_flow_m3_h": 85,
+        "maximum_discharge_pressure_bar": 16,
+        "liquid_temperature_range_c": [
+          -10,
+          120
+        ],
+        "wetted_material": "stainless_steel_316L",
+        "motor_power_kw": 18.5,
+        "power_supply_v_ac": 400,
+        "connection_dn": 65,
+        "seal_material": "FKM",
+        "atex_certified": false,
+        "maximum_viscosity_mpa_s": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 13500,
+        "standard_lead_time_weeks": 6,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "coupled_performance",
+          "description": "At maximum flow, discharge pressure must not exceed the stated limit. Other operating points require engineering confirmation.",
+          "at_flow_m3_h": 85,
+          "maximum_pressure_bar": 8
+        },
+        {
+          "type": "fluid_compatibility",
+          "description": "Chemical compatibility requires the fluid identity and concentration; material name alone does not establish suitability."
+        }
+      ],
+      "options": [
+        {
+          "code": "W24",
+          "name": "24-month warranty",
+          "additional_price_eur": 405.0,
+          "additional_lead_time_weeks": 0,
+          "changes": {
+            "warranty_months": 24
+          }
+        },
+        {
+          "code": "ATEX",
+          "name": "ATEX motor and assembly variant",
+          "additional_price_eur": null,
+          "additional_lead_time_weeks": 4,
+          "changes": {
+            "atex_certified": true,
+            "atex_classification": null
+          }
+        },
+        {
+          "code": "HT",
+          "name": "High-temperature seal package",
+          "additional_price_eur": 1800,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "liquid_temperature_range_c": [
+              -10,
+              160
+            ],
+            "seal_material": "FFKM"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PMP-005",
+      "name": "FlowCore C120",
+      "category": "centrifugal_pump",
+      "specifications": {
+        "pump_type": "centrifugal",
+        "maximum_flow_m3_h": 120,
+        "maximum_discharge_pressure_bar": 20,
+        "liquid_temperature_range_c": [
+          -10,
+          150
+        ],
+        "wetted_material": "duplex_2205",
+        "motor_power_kw": 30,
+        "power_supply_v_ac": 400,
+        "connection_dn": 80,
+        "seal_material": "FKM",
+        "atex_certified": false,
+        "maximum_viscosity_mpa_s": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 21000,
+        "standard_lead_time_weeks": 8,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "coupled_performance",
+          "description": "At maximum flow, discharge pressure must not exceed the stated limit. Other operating points require engineering confirmation.",
+          "at_flow_m3_h": 120,
+          "maximum_pressure_bar": 10
+        },
+        {
+          "type": "fluid_compatibility",
+          "description": "Chemical compatibility requires the fluid identity and concentration; material name alone does not establish suitability."
+        }
+      ],
+      "options": [
+        {
+          "code": "W24",
+          "name": "24-month warranty",
+          "additional_price_eur": 630.0,
+          "additional_lead_time_weeks": 0,
+          "changes": {
+            "warranty_months": 24
+          }
+        },
+        {
+          "code": "ATEX",
+          "name": "ATEX motor and assembly variant",
+          "additional_price_eur": null,
+          "additional_lead_time_weeks": 4,
+          "changes": {
+            "atex_certified": true,
+            "atex_classification": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "VLV-001",
+      "name": "ShutLine B15",
+      "category": "ball_valve",
+      "specifications": {
+        "nominal_diameter_dn": 15,
+        "body_material": "brass",
+        "seat_material": "PTFE",
+        "maximum_pressure_at_20c_bar": 25,
+        "temperature_range_c": [
+          -10,
+          180
+        ],
+        "actuation": "manual",
+        "connection_type": "threaded",
+        "food_contact_documentation_available": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 95,
+        "standard_lead_time_weeks": 1,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "temperature_derating",
+          "description": "Above 120°C the maximum permitted pressure is reduced.",
+          "temperature_above_c": 120,
+          "maximum_pressure_bar": 10
+        }
+      ],
+      "options": [
+        {
+          "code": "PNEU",
+          "name": "Pneumatic actuator",
+          "additional_price_eur": 180,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "actuation": "pneumatic",
+            "required_air_pressure_bar": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "code": "SEAL",
+          "name": "Seat material certificate",
+          "additional_price_eur": 45,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "seat_material_certificate_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "VLV-002",
+      "name": "ShutLine B25",
+      "category": "ball_valve",
+      "specifications": {
+        "nominal_diameter_dn": 25,
+        "body_material": "stainless_steel_304",
+        "seat_material": "PTFE",
+        "maximum_pressure_at_20c_bar": 40,
+        "temperature_range_c": [
+          -10,
+          180
+        ],
+        "actuation": "manual",
+        "connection_type": "threaded",
+        "food_contact_documentation_available": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 160,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "temperature_derating",
+          "description": "Above 120°C the maximum permitted pressure is reduced.",
+          "temperature_above_c": 120,
+          "maximum_pressure_bar": 16
+        }
+      ],
+      "options": [
+        {
+          "code": "PNEU",
+          "name": "Pneumatic actuator",
+          "additional_price_eur": 220,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "actuation": "pneumatic",
+            "required_air_pressure_bar": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "code": "SEAL",
+          "name": "Seat material certificate",
+          "additional_price_eur": 45,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "seat_material_certificate_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "VLV-003",
+      "name": "ShutLine B40",
+      "category": "ball_valve",
+      "specifications": {
+        "nominal_diameter_dn": 40,
+        "body_material": "stainless_steel_316L",
+        "seat_material": "PTFE",
+        "maximum_pressure_at_20c_bar": 40,
+        "temperature_range_c": [
+          -10,
+          180
+        ],
+        "actuation": "manual",
+        "connection_type": "flanged",
+        "food_contact_documentation_available": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 310,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "temperature_derating",
+          "description": "Above 120°C the maximum permitted pressure is reduced.",
+          "temperature_above_c": 120,
+          "maximum_pressure_bar": 16
+        }
+      ],
+      "options": [
+        {
+          "code": "PNEU",
+          "name": "Pneumatic actuator",
+          "additional_price_eur": 280,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "actuation": "pneumatic",
+            "required_air_pressure_bar": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "code": "SEAL",
+          "name": "Seat material certificate",
+          "additional_price_eur": 45,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "seat_material_certificate_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "VLV-004",
+      "name": "ShutLine B65",
+      "category": "ball_valve",
+      "specifications": {
+        "nominal_diameter_dn": 65,
+        "body_material": "stainless_steel_316L",
+        "seat_material": "PTFE",
+        "maximum_pressure_at_20c_bar": 25,
+        "temperature_range_c": [
+          -10,
+          180
+        ],
+        "actuation": "manual",
+        "connection_type": "flanged",
+        "food_contact_documentation_available": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 670,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "temperature_derating",
+          "description": "Above 120°C the maximum permitted pressure is reduced.",
+          "temperature_above_c": 120,
+          "maximum_pressure_bar": 10
+        }
+      ],
+      "options": [
+        {
+          "code": "PNEU",
+          "name": "Pneumatic actuator",
+          "additional_price_eur": 450,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "actuation": "pneumatic",
+            "required_air_pressure_bar": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "code": "SEAL",
+          "name": "Seat material certificate",
+          "additional_price_eur": 45,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "seat_material_certificate_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "VLV-005",
+      "name": "ShutLine B100",
+      "category": "ball_valve",
+      "specifications": {
+        "nominal_diameter_dn": 100,
+        "body_material": "duplex_2205",
+        "seat_material": "PTFE",
+        "maximum_pressure_at_20c_bar": 25,
+        "temperature_range_c": [
+          -10,
+          180
+        ],
+        "actuation": "manual",
+        "connection_type": "flanged",
+        "food_contact_documentation_available": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 1450,
+        "standard_lead_time_weeks": 6,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "temperature_derating",
+          "description": "Above 120°C the maximum permitted pressure is reduced.",
+          "temperature_above_c": 120,
+          "maximum_pressure_bar": 10
+        }
+      ],
+      "options": [
+        {
+          "code": "PNEU",
+          "name": "Pneumatic actuator",
+          "additional_price_eur": 700,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "actuation": "pneumatic",
+            "required_air_pressure_bar": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "code": "SEAL",
+          "name": "Seat material certificate",
+          "additional_price_eur": 45,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "seat_material_certificate_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "SEN-001",
+      "name": "PressSense P6",
+      "category": "pressure_transmitter",
+      "specifications": {
+        "measurement_type": "gauge_pressure",
+        "measurement_range_bar": [
+          0,
+          6
+        ],
+        "accuracy_percent_full_scale": 0.5,
+        "output_signal": "4-20_mA",
+        "supply_voltage_v_dc": [
+          18,
+          30
+        ],
+        "process_connection": "G1/4",
+        "ingress_protection": "IP65",
+        "process_temperature_range_c": [
+          -20,
+          100
+        ],
+        "wetted_material": "stainless_steel_316L"
+      },
+      "commercial": {
+        "base_unit_price_eur": 130,
+        "standard_lead_time_weeks": 1,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "electrical_compatibility",
+          "description": "Input module must support the listed output signal. HART communication additionally requires a HART-capable interface."
+        }
+      ],
+      "options": [
+        {
+          "code": "CAL",
+          "name": "Traceable calibration report",
+          "additional_price_eur": 95,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "calibration_report_included": true
+          }
+        },
+        {
+          "code": "COOL",
+          "name": "Cooling adapter",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "process_temperature_range_c": [
+              -20,
+              180
+            ],
+            "response_time_ms": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "SEN-002",
+      "name": "PressSense P10",
+      "category": "pressure_transmitter",
+      "specifications": {
+        "measurement_type": "gauge_pressure",
+        "measurement_range_bar": [
+          0,
+          10
+        ],
+        "accuracy_percent_full_scale": 0.25,
+        "output_signal": "4-20_mA",
+        "supply_voltage_v_dc": [
+          18,
+          30
+        ],
+        "process_connection": "G1/4",
+        "ingress_protection": "IP67",
+        "process_temperature_range_c": [
+          -20,
+          100
+        ],
+        "wetted_material": "stainless_steel_316L"
+      },
+      "commercial": {
+        "base_unit_price_eur": 210,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "electrical_compatibility",
+          "description": "Input module must support the listed output signal. HART communication additionally requires a HART-capable interface."
+        }
+      ],
+      "options": [
+        {
+          "code": "CAL",
+          "name": "Traceable calibration report",
+          "additional_price_eur": 95,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "calibration_report_included": true
+          }
+        },
+        {
+          "code": "COOL",
+          "name": "Cooling adapter",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "process_temperature_range_c": [
+              -20,
+              180
+            ],
+            "response_time_ms": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "SEN-003",
+      "name": "PressSense P25",
+      "category": "pressure_transmitter",
+      "specifications": {
+        "measurement_type": "gauge_pressure",
+        "measurement_range_bar": [
+          0,
+          25
+        ],
+        "accuracy_percent_full_scale": 0.25,
+        "output_signal": "0-10_V",
+        "supply_voltage_v_dc": [
+          18,
+          30
+        ],
+        "process_connection": "G1/2",
+        "ingress_protection": "IP67",
+        "process_temperature_range_c": [
+          -20,
+          100
+        ],
+        "wetted_material": "stainless_steel_316L"
+      },
+      "commercial": {
+        "base_unit_price_eur": 250,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "electrical_compatibility",
+          "description": "Input module must support the listed output signal. HART communication additionally requires a HART-capable interface."
+        }
+      ],
+      "options": [
+        {
+          "code": "CAL",
+          "name": "Traceable calibration report",
+          "additional_price_eur": 95,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "calibration_report_included": true
+          }
+        },
+        {
+          "code": "COOL",
+          "name": "Cooling adapter",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "process_temperature_range_c": [
+              -20,
+              180
+            ],
+            "response_time_ms": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "SEN-004",
+      "name": "PressSense P100",
+      "category": "pressure_transmitter",
+      "specifications": {
+        "measurement_type": "gauge_pressure",
+        "measurement_range_bar": [
+          0,
+          100
+        ],
+        "accuracy_percent_full_scale": 0.1,
+        "output_signal": "4-20_mA_HART",
+        "supply_voltage_v_dc": [
+          18,
+          30
+        ],
+        "process_connection": "G1/2",
+        "ingress_protection": "IP68",
+        "process_temperature_range_c": [
+          -20,
+          100
+        ],
+        "wetted_material": "stainless_steel_316L",
+        "response_time_ms": 10
+      },
+      "commercial": {
+        "base_unit_price_eur": 490,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "electrical_compatibility",
+          "description": "Input module must support the listed output signal. HART communication additionally requires a HART-capable interface."
+        }
+      ],
+      "options": [
+        {
+          "code": "CAL",
+          "name": "Traceable calibration report",
+          "additional_price_eur": 95,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "calibration_report_included": true
+          }
+        },
+        {
+          "code": "COOL",
+          "name": "Cooling adapter",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "process_temperature_range_c": [
+              -20,
+              180
+            ],
+            "response_time_ms": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "SEN-005",
+      "name": "PressSense P250",
+      "category": "pressure_transmitter",
+      "specifications": {
+        "measurement_type": "gauge_pressure",
+        "measurement_range_bar": [
+          0,
+          250
+        ],
+        "accuracy_percent_full_scale": 0.1,
+        "output_signal": "4-20_mA_HART",
+        "supply_voltage_v_dc": [
+          18,
+          30
+        ],
+        "process_connection": "M20x1.5",
+        "ingress_protection": "IP68",
+        "process_temperature_range_c": [
+          -20,
+          100
+        ],
+        "wetted_material": "stainless_steel_316L",
+        "response_time_ms": 10
+      },
+      "commercial": {
+        "base_unit_price_eur": 680,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "electrical_compatibility",
+          "description": "Input module must support the listed output signal. HART communication additionally requires a HART-capable interface."
+        }
+      ],
+      "options": [
+        {
+          "code": "CAL",
+          "name": "Traceable calibration report",
+          "additional_price_eur": 95,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "calibration_report_included": true
+          }
+        },
+        {
+          "code": "COOL",
+          "name": "Cooling adapter",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "process_temperature_range_c": [
+              -20,
+              180
+            ],
+            "response_time_ms": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "TNK-001",
+      "name": "HoldSafe T100",
+      "category": "storage_tank",
+      "specifications": {
+        "nominal_volume_l": 100,
+        "usable_volume_l": 90,
+        "tank_material": "HDPE",
+        "maximum_liquid_temperature_c": 50,
+        "pressure_rating": "atmospheric_only",
+        "diameter_mm": 500,
+        "height_mm": 650,
+        "outlet_dn": 20,
+        "agitator_included": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 450,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_limit",
+          "description": "Not suitable for positive gauge pressure or vacuum service."
+        },
+        {
+          "type": "capacity",
+          "description": "Use usable volume, not nominal volume, for required working capacity."
+        }
+      ]
+    },
+    {
+      "id": "TNK-002",
+      "name": "HoldSafe T250",
+      "category": "storage_tank",
+      "specifications": {
+        "nominal_volume_l": 250,
+        "usable_volume_l": 225,
+        "tank_material": "HDPE",
+        "maximum_liquid_temperature_c": 50,
+        "pressure_rating": "atmospheric_only",
+        "diameter_mm": 700,
+        "height_mm": 850,
+        "outlet_dn": 25,
+        "agitator_included": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 850,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_limit",
+          "description": "Not suitable for positive gauge pressure or vacuum service."
+        },
+        {
+          "type": "capacity",
+          "description": "Use usable volume, not nominal volume, for required working capacity."
+        }
+      ]
+    },
+    {
+      "id": "TNK-003",
+      "name": "HoldSafe T500",
+      "category": "storage_tank",
+      "specifications": {
+        "nominal_volume_l": 500,
+        "usable_volume_l": 450,
+        "tank_material": "stainless_steel_304",
+        "maximum_liquid_temperature_c": 90,
+        "pressure_rating": "atmospheric_only",
+        "diameter_mm": 850,
+        "height_mm": 1100,
+        "outlet_dn": 32,
+        "agitator_included": false,
+        "internal_surface_roughness_ra_um": 1.6
+      },
+      "commercial": {
+        "base_unit_price_eur": 2200,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_limit",
+          "description": "Not suitable for positive gauge pressure or vacuum service."
+        },
+        {
+          "type": "capacity",
+          "description": "Use usable volume, not nominal volume, for required working capacity."
+        }
+      ],
+      "options": [
+        {
+          "code": "MIX",
+          "name": "Top-mounted agitator",
+          "additional_price_eur": 650,
+          "additional_lead_time_weeks": 3,
+          "changes": {
+            "agitator_included": true,
+            "agitator_motor_power_kw": 0.37
+          }
+        }
+      ]
+    },
+    {
+      "id": "TNK-004",
+      "name": "HoldSafe T1000",
+      "category": "storage_tank",
+      "specifications": {
+        "nominal_volume_l": 1000,
+        "usable_volume_l": 900,
+        "tank_material": "stainless_steel_316L",
+        "maximum_liquid_temperature_c": 120,
+        "pressure_rating": "atmospheric_only",
+        "diameter_mm": 1100,
+        "height_mm": 1350,
+        "outlet_dn": 40,
+        "agitator_included": false,
+        "internal_surface_roughness_ra_um": 0.8
+      },
+      "commercial": {
+        "base_unit_price_eur": 5400,
+        "standard_lead_time_weeks": 7,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_limit",
+          "description": "Not suitable for positive gauge pressure or vacuum service."
+        },
+        {
+          "type": "capacity",
+          "description": "Use usable volume, not nominal volume, for required working capacity."
+        }
+      ],
+      "options": [
+        {
+          "code": "MIX",
+          "name": "Top-mounted agitator",
+          "additional_price_eur": 1100,
+          "additional_lead_time_weeks": 3,
+          "changes": {
+            "agitator_included": true,
+            "agitator_motor_power_kw": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "TNK-005",
+      "name": "HoldSafe T2000",
+      "category": "storage_tank",
+      "specifications": {
+        "nominal_volume_l": 2000,
+        "usable_volume_l": 1800,
+        "tank_material": "stainless_steel_316L",
+        "maximum_liquid_temperature_c": 120,
+        "pressure_rating": "atmospheric_only",
+        "diameter_mm": 1450,
+        "height_mm": 1600,
+        "outlet_dn": 50,
+        "agitator_included": false,
+        "internal_surface_roughness_ra_um": 0.8
+      },
+      "commercial": {
+        "base_unit_price_eur": 9200,
+        "standard_lead_time_weeks": 9,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_limit",
+          "description": "Not suitable for positive gauge pressure or vacuum service."
+        },
+        {
+          "type": "capacity",
+          "description": "Use usable volume, not nominal volume, for required working capacity."
+        }
+      ],
+      "options": [
+        {
+          "code": "MIX",
+          "name": "Top-mounted agitator",
+          "additional_price_eur": 1700,
+          "additional_lead_time_weeks": 3,
+          "changes": {
+            "agitator_included": true,
+            "agitator_motor_power_kw": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOT-001",
+      "name": "DriveForce M1-5",
+      "category": "electric_motor",
+      "specifications": {
+        "rated_power_kw": 1.5,
+        "rated_voltage_v_ac": 400,
+        "phase_count": 3,
+        "frequency_hz": 50,
+        "rated_speed_rpm": 1430,
+        "efficiency_class": "IE3",
+        "mounting": "B3",
+        "ingress_protection": "IP55",
+        "ambient_temperature_range_c": [
+          -20,
+          40
+        ],
+        "atex_certified": false,
+        "inverter_compatible": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 280,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "ambient_derating",
+          "description": "Between 40°C and 50°C, available continuous power is 90% of rated power. Above 50°C is unsupported.",
+          "ambient_range_c": [
+            40,
+            50
+          ],
+          "power_multiplier": 0.9
+        }
+      ],
+      "options": [
+        {
+          "code": "IP66",
+          "name": "Sealed enclosure",
+          "additional_price_eur": 90,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "ingress_protection": "IP66"
+          }
+        },
+        {
+          "code": "BRAKE",
+          "name": "Holding brake",
+          "additional_price_eur": 150,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "holding_brake_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOT-002",
+      "name": "DriveForce M3",
+      "category": "electric_motor",
+      "specifications": {
+        "rated_power_kw": 3,
+        "rated_voltage_v_ac": 400,
+        "phase_count": 3,
+        "frequency_hz": 50,
+        "rated_speed_rpm": 1440,
+        "efficiency_class": "IE3",
+        "mounting": "B3",
+        "ingress_protection": "IP55",
+        "ambient_temperature_range_c": [
+          -20,
+          40
+        ],
+        "atex_certified": false,
+        "inverter_compatible": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 410,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "ambient_derating",
+          "description": "Between 40°C and 50°C, available continuous power is 90% of rated power. Above 50°C is unsupported.",
+          "ambient_range_c": [
+            40,
+            50
+          ],
+          "power_multiplier": 0.9
+        }
+      ],
+      "options": [
+        {
+          "code": "IP66",
+          "name": "Sealed enclosure",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "ingress_protection": "IP66"
+          }
+        },
+        {
+          "code": "BRAKE",
+          "name": "Holding brake",
+          "additional_price_eur": 210,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "holding_brake_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOT-003",
+      "name": "DriveForce M5-5",
+      "category": "electric_motor",
+      "specifications": {
+        "rated_power_kw": 5.5,
+        "rated_voltage_v_ac": 400,
+        "phase_count": 3,
+        "frequency_hz": 50,
+        "rated_speed_rpm": 1450,
+        "efficiency_class": "IE3",
+        "mounting": "B5",
+        "ingress_protection": "IP55",
+        "ambient_temperature_range_c": [
+          -20,
+          40
+        ],
+        "atex_certified": false,
+        "inverter_compatible": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 650,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "ambient_derating",
+          "description": "Between 40°C and 50°C, available continuous power is 90% of rated power. Above 50°C is unsupported.",
+          "ambient_range_c": [
+            40,
+            50
+          ],
+          "power_multiplier": 0.9
+        }
+      ],
+      "options": [
+        {
+          "code": "IP66",
+          "name": "Sealed enclosure",
+          "additional_price_eur": 150,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "ingress_protection": "IP66"
+          }
+        },
+        {
+          "code": "BRAKE",
+          "name": "Holding brake",
+          "additional_price_eur": 270,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "holding_brake_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOT-004",
+      "name": "DriveForce M11",
+      "category": "electric_motor",
+      "specifications": {
+        "rated_power_kw": 11,
+        "rated_voltage_v_ac": 400,
+        "phase_count": 3,
+        "frequency_hz": 50,
+        "rated_speed_rpm": 1460,
+        "efficiency_class": "IE3",
+        "mounting": "B5",
+        "ingress_protection": "IP55",
+        "ambient_temperature_range_c": [
+          -20,
+          40
+        ],
+        "atex_certified": false,
+        "inverter_compatible": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 1100,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "ambient_derating",
+          "description": "Between 40°C and 50°C, available continuous power is 90% of rated power. Above 50°C is unsupported.",
+          "ambient_range_c": [
+            40,
+            50
+          ],
+          "power_multiplier": 0.9
+        }
+      ],
+      "options": [
+        {
+          "code": "IP66",
+          "name": "Sealed enclosure",
+          "additional_price_eur": 180,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "ingress_protection": "IP66"
+          }
+        },
+        {
+          "code": "BRAKE",
+          "name": "Holding brake",
+          "additional_price_eur": 330,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "holding_brake_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOT-005",
+      "name": "DriveForce M22",
+      "category": "electric_motor",
+      "specifications": {
+        "rated_power_kw": 22,
+        "rated_voltage_v_ac": 400,
+        "phase_count": 3,
+        "frequency_hz": 50,
+        "rated_speed_rpm": 1470,
+        "efficiency_class": "IE3",
+        "mounting": "B35",
+        "ingress_protection": "IP55",
+        "ambient_temperature_range_c": [
+          -20,
+          40
+        ],
+        "atex_certified": false,
+        "inverter_compatible": true
+      },
+      "commercial": {
+        "base_unit_price_eur": 1900,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "ambient_derating",
+          "description": "Between 40°C and 50°C, available continuous power is 90% of rated power. Above 50°C is unsupported.",
+          "ambient_range_c": [
+            40,
+            50
+          ],
+          "power_multiplier": 0.9
+        }
+      ],
+      "options": [
+        {
+          "code": "IP66",
+          "name": "Sealed enclosure",
+          "additional_price_eur": 210,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "ingress_protection": "IP66"
+          }
+        },
+        {
+          "code": "BRAKE",
+          "name": "Holding brake",
+          "additional_price_eur": 390,
+          "additional_lead_time_weeks": 2,
+          "changes": {
+            "holding_brake_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "FLT-001",
+      "name": "ClearPath F10",
+      "category": "liquid_filter",
+      "specifications": {
+        "rated_flow_m3_h": 10,
+        "filter_rating_um": 100,
+        "housing_material": "polypropylene",
+        "maximum_operating_pressure_bar": 6,
+        "maximum_liquid_temperature_c": 40,
+        "connection_dn": 25,
+        "clean_pressure_drop_bar": 0.2,
+        "replacement_element_price_eur": 20
+      },
+      "commercial": {
+        "base_unit_price_eur": 180,
+        "standard_lead_time_weeks": 1,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "rated_conditions",
+          "description": "Rated flow and clean pressure drop apply to clean water at 20°C; viscous fluids or fouled elements require separate sizing."
+        }
+      ],
+      "options": [
+        {
+          "code": "DP",
+          "name": "Differential-pressure indicator",
+          "additional_price_eur": 75,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "differential_pressure_indicator_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "FLT-002",
+      "name": "ClearPath F20",
+      "category": "liquid_filter",
+      "specifications": {
+        "rated_flow_m3_h": 20,
+        "filter_rating_um": 50,
+        "housing_material": "polypropylene",
+        "maximum_operating_pressure_bar": 6,
+        "maximum_liquid_temperature_c": 40,
+        "connection_dn": 32,
+        "clean_pressure_drop_bar": 0.2,
+        "replacement_element_price_eur": 35
+      },
+      "commercial": {
+        "base_unit_price_eur": 340,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "rated_conditions",
+          "description": "Rated flow and clean pressure drop apply to clean water at 20°C; viscous fluids or fouled elements require separate sizing."
+        }
+      ],
+      "options": [
+        {
+          "code": "DP",
+          "name": "Differential-pressure indicator",
+          "additional_price_eur": 75,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "differential_pressure_indicator_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "FLT-003",
+      "name": "ClearPath F40",
+      "category": "liquid_filter",
+      "specifications": {
+        "rated_flow_m3_h": 40,
+        "filter_rating_um": 25,
+        "housing_material": "stainless_steel_304",
+        "maximum_operating_pressure_bar": 10,
+        "maximum_liquid_temperature_c": 90,
+        "connection_dn": 40,
+        "clean_pressure_drop_bar": 0.2,
+        "replacement_element_price_eur": 60
+      },
+      "commercial": {
+        "base_unit_price_eur": 620,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "rated_conditions",
+          "description": "Rated flow and clean pressure drop apply to clean water at 20°C; viscous fluids or fouled elements require separate sizing."
+        }
+      ],
+      "options": [
+        {
+          "code": "DP",
+          "name": "Differential-pressure indicator",
+          "additional_price_eur": 75,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "differential_pressure_indicator_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "FLT-004",
+      "name": "ClearPath F60",
+      "category": "liquid_filter",
+      "specifications": {
+        "rated_flow_m3_h": 60,
+        "filter_rating_um": 10,
+        "housing_material": "stainless_steel_316L",
+        "maximum_operating_pressure_bar": 16,
+        "maximum_liquid_temperature_c": 120,
+        "connection_dn": 65,
+        "clean_pressure_drop_bar": 0.2,
+        "replacement_element_price_eur": 95
+      },
+      "commercial": {
+        "base_unit_price_eur": 1100,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "rated_conditions",
+          "description": "Rated flow and clean pressure drop apply to clean water at 20°C; viscous fluids or fouled elements require separate sizing."
+        }
+      ],
+      "options": [
+        {
+          "code": "DP",
+          "name": "Differential-pressure indicator",
+          "additional_price_eur": 75,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "differential_pressure_indicator_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "FLT-005",
+      "name": "ClearPath F100",
+      "category": "liquid_filter",
+      "specifications": {
+        "rated_flow_m3_h": 100,
+        "filter_rating_um": 5,
+        "housing_material": "stainless_steel_316L",
+        "maximum_operating_pressure_bar": 16,
+        "maximum_liquid_temperature_c": 120,
+        "connection_dn": 80,
+        "clean_pressure_drop_bar": 0.2,
+        "replacement_element_price_eur": 150
+      },
+      "commercial": {
+        "base_unit_price_eur": 2100,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "rated_conditions",
+          "description": "Rated flow and clean pressure drop apply to clean water at 20°C; viscous fluids or fouled elements require separate sizing."
+        }
+      ],
+      "options": [
+        {
+          "code": "DP",
+          "name": "Differential-pressure indicator",
+          "additional_price_eur": 75,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "differential_pressure_indicator_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "HEX-001",
+      "name": "ThermaLink H10",
+      "category": "plate_heat_exchanger",
+      "specifications": {
+        "nominal_thermal_duty_kw": 10,
+        "plate_material": "stainless_steel_316L",
+        "construction": "copper_brazed",
+        "maximum_operating_pressure_bar": 30,
+        "maximum_operating_temperature_c": 180,
+        "connection_dn": 20,
+        "nominal_rating_conditions": {
+          "hot_fluid": "water",
+          "cold_fluid": "water",
+          "hot_inlet_c": 80,
+          "hot_outlet_c": 60,
+          "cold_inlet_c": 20,
+          "cold_outlet_c": 40
+        }
+      },
+      "commercial": {
+        "base_unit_price_eur": 620,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "thermal_sizing",
+          "description": "Nominal duty applies only at the stated rating conditions. Other temperatures, fluids, or flow rates require thermal sizing."
+        },
+        {
+          "type": "chemical_compatibility",
+          "description": "Compatibility must consider all wetted materials, including copper braze where present."
+        }
+      ],
+      "options": [
+        {
+          "code": "INS",
+          "name": "Insulation jacket",
+          "additional_price_eur": 100,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "insulation_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "HEX-002",
+      "name": "ThermaLink H25",
+      "category": "plate_heat_exchanger",
+      "specifications": {
+        "nominal_thermal_duty_kw": 25,
+        "plate_material": "stainless_steel_316L",
+        "construction": "copper_brazed",
+        "maximum_operating_pressure_bar": 30,
+        "maximum_operating_temperature_c": 180,
+        "connection_dn": 25,
+        "nominal_rating_conditions": {
+          "hot_fluid": "water",
+          "cold_fluid": "water",
+          "hot_inlet_c": 80,
+          "hot_outlet_c": 60,
+          "cold_inlet_c": 20,
+          "cold_outlet_c": 40
+        }
+      },
+      "commercial": {
+        "base_unit_price_eur": 1100,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "thermal_sizing",
+          "description": "Nominal duty applies only at the stated rating conditions. Other temperatures, fluids, or flow rates require thermal sizing."
+        },
+        {
+          "type": "chemical_compatibility",
+          "description": "Compatibility must consider all wetted materials, including copper braze where present."
+        }
+      ],
+      "options": [
+        {
+          "code": "INS",
+          "name": "Insulation jacket",
+          "additional_price_eur": 160,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "insulation_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "HEX-003",
+      "name": "ThermaLink H50",
+      "category": "plate_heat_exchanger",
+      "specifications": {
+        "nominal_thermal_duty_kw": 50,
+        "plate_material": "stainless_steel_316L",
+        "construction": "gasketed",
+        "maximum_operating_pressure_bar": 16,
+        "maximum_operating_temperature_c": 120,
+        "connection_dn": 32,
+        "nominal_rating_conditions": {
+          "hot_fluid": "water",
+          "cold_fluid": "water",
+          "hot_inlet_c": 80,
+          "hot_outlet_c": 60,
+          "cold_inlet_c": 20,
+          "cold_outlet_c": 40
+        }
+      },
+      "commercial": {
+        "base_unit_price_eur": 2100,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "thermal_sizing",
+          "description": "Nominal duty applies only at the stated rating conditions. Other temperatures, fluids, or flow rates require thermal sizing."
+        },
+        {
+          "type": "chemical_compatibility",
+          "description": "Compatibility must consider all wetted materials, including copper braze where present."
+        }
+      ],
+      "options": [
+        {
+          "code": "INS",
+          "name": "Insulation jacket",
+          "additional_price_eur": 220,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "insulation_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "HEX-004",
+      "name": "ThermaLink H100",
+      "category": "plate_heat_exchanger",
+      "specifications": {
+        "nominal_thermal_duty_kw": 100,
+        "plate_material": "stainless_steel_316L",
+        "construction": "gasketed",
+        "maximum_operating_pressure_bar": 16,
+        "maximum_operating_temperature_c": 120,
+        "connection_dn": 50,
+        "nominal_rating_conditions": {
+          "hot_fluid": "water",
+          "cold_fluid": "water",
+          "hot_inlet_c": 80,
+          "hot_outlet_c": 60,
+          "cold_inlet_c": 20,
+          "cold_outlet_c": 40
+        }
+      },
+      "commercial": {
+        "base_unit_price_eur": 3800,
+        "standard_lead_time_weeks": 6,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "thermal_sizing",
+          "description": "Nominal duty applies only at the stated rating conditions. Other temperatures, fluids, or flow rates require thermal sizing."
+        },
+        {
+          "type": "chemical_compatibility",
+          "description": "Compatibility must consider all wetted materials, including copper braze where present."
+        }
+      ],
+      "options": [
+        {
+          "code": "INS",
+          "name": "Insulation jacket",
+          "additional_price_eur": 280,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "insulation_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "HEX-005",
+      "name": "ThermaLink H200",
+      "category": "plate_heat_exchanger",
+      "specifications": {
+        "nominal_thermal_duty_kw": 200,
+        "plate_material": "stainless_steel_316L",
+        "construction": "gasketed",
+        "maximum_operating_pressure_bar": 16,
+        "maximum_operating_temperature_c": 150,
+        "connection_dn": 65,
+        "nominal_rating_conditions": {
+          "hot_fluid": "water",
+          "cold_fluid": "water",
+          "hot_inlet_c": 80,
+          "hot_outlet_c": 60,
+          "cold_inlet_c": 20,
+          "cold_outlet_c": 40
+        }
+      },
+      "commercial": {
+        "base_unit_price_eur": 7200,
+        "standard_lead_time_weeks": 8,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "thermal_sizing",
+          "description": "Nominal duty applies only at the stated rating conditions. Other temperatures, fluids, or flow rates require thermal sizing."
+        },
+        {
+          "type": "chemical_compatibility",
+          "description": "Compatibility must consider all wetted materials, including copper braze where present."
+        }
+      ],
+      "options": [
+        {
+          "code": "INS",
+          "name": "Insulation jacket",
+          "additional_price_eur": 340,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "insulation_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "CMP-001",
+      "name": "AirWorks A150",
+      "category": "air_compressor",
+      "specifications": {
+        "compressor_type": "piston",
+        "free_air_delivery_at_7bar_l_min": 150,
+        "maximum_pressure_bar": 8,
+        "motor_power_kw": 1.5,
+        "supply_voltage_v_ac": 230,
+        "oil_free": true,
+        "receiver_volume_l": 24,
+        "noise_db_a_at_1m": 72,
+        "maximum_duty_cycle_percent": 50
+      },
+      "commercial": {
+        "base_unit_price_eur": 850,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_flow_dependency",
+          "description": "Listed air delivery is measured at 7 bar; delivery at other pressures is not specified."
+        },
+        {
+          "type": "air_quality",
+          "description": "An oil-lubricated compressor is not made oil-free by adding a refrigerated dryer."
+        }
+      ],
+      "options": [
+        {
+          "code": "DRY",
+          "name": "Refrigerated air dryer",
+          "additional_price_eur": 350,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "dryer_included": true,
+            "pressure_dew_point_c": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "CMP-002",
+      "name": "AirWorks A300",
+      "category": "air_compressor",
+      "specifications": {
+        "compressor_type": "piston",
+        "free_air_delivery_at_7bar_l_min": 300,
+        "maximum_pressure_bar": 10,
+        "motor_power_kw": 3,
+        "supply_voltage_v_ac": 400,
+        "oil_free": false,
+        "receiver_volume_l": 50,
+        "noise_db_a_at_1m": 78,
+        "maximum_duty_cycle_percent": 60
+      },
+      "commercial": {
+        "base_unit_price_eur": 1450,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_flow_dependency",
+          "description": "Listed air delivery is measured at 7 bar; delivery at other pressures is not specified."
+        },
+        {
+          "type": "air_quality",
+          "description": "An oil-lubricated compressor is not made oil-free by adding a refrigerated dryer."
+        }
+      ],
+      "options": [
+        {
+          "code": "DRY",
+          "name": "Refrigerated air dryer",
+          "additional_price_eur": 570,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "dryer_included": true,
+            "pressure_dew_point_c": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "CMP-003",
+      "name": "AirWorks A600",
+      "category": "air_compressor",
+      "specifications": {
+        "compressor_type": "screw",
+        "free_air_delivery_at_7bar_l_min": 600,
+        "maximum_pressure_bar": 10,
+        "motor_power_kw": 5.5,
+        "supply_voltage_v_ac": 400,
+        "oil_free": false,
+        "receiver_volume_l": 200,
+        "noise_db_a_at_1m": 68,
+        "maximum_duty_cycle_percent": 100
+      },
+      "commercial": {
+        "base_unit_price_eur": 3100,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_flow_dependency",
+          "description": "Listed air delivery is measured at 7 bar; delivery at other pressures is not specified."
+        },
+        {
+          "type": "air_quality",
+          "description": "An oil-lubricated compressor is not made oil-free by adding a refrigerated dryer."
+        }
+      ],
+      "options": [
+        {
+          "code": "DRY",
+          "name": "Refrigerated air dryer",
+          "additional_price_eur": 790,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "dryer_included": true,
+            "pressure_dew_point_c": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "CMP-004",
+      "name": "AirWorks A1000",
+      "category": "air_compressor",
+      "specifications": {
+        "compressor_type": "screw",
+        "free_air_delivery_at_7bar_l_min": 1000,
+        "maximum_pressure_bar": 13,
+        "motor_power_kw": 7.5,
+        "supply_voltage_v_ac": 400,
+        "oil_free": false,
+        "receiver_volume_l": 270,
+        "noise_db_a_at_1m": 67,
+        "maximum_duty_cycle_percent": 100
+      },
+      "commercial": {
+        "base_unit_price_eur": 6200,
+        "standard_lead_time_weeks": 6,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_flow_dependency",
+          "description": "Listed air delivery is measured at 7 bar; delivery at other pressures is not specified."
+        },
+        {
+          "type": "air_quality",
+          "description": "An oil-lubricated compressor is not made oil-free by adding a refrigerated dryer."
+        }
+      ],
+      "options": [
+        {
+          "code": "DRY",
+          "name": "Refrigerated air dryer",
+          "additional_price_eur": 1010,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "dryer_included": true,
+            "pressure_dew_point_c": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "CMP-005",
+      "name": "AirWorks A1800",
+      "category": "air_compressor",
+      "specifications": {
+        "compressor_type": "screw",
+        "free_air_delivery_at_7bar_l_min": 1800,
+        "maximum_pressure_bar": 13,
+        "motor_power_kw": 15,
+        "supply_voltage_v_ac": 400,
+        "oil_free": false,
+        "receiver_volume_l": 500,
+        "noise_db_a_at_1m": 69,
+        "maximum_duty_cycle_percent": 100
+      },
+      "commercial": {
+        "base_unit_price_eur": 11500,
+        "standard_lead_time_weeks": 8,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "pressure_flow_dependency",
+          "description": "Listed air delivery is measured at 7 bar; delivery at other pressures is not specified."
+        },
+        {
+          "type": "air_quality",
+          "description": "An oil-lubricated compressor is not made oil-free by adding a refrigerated dryer."
+        }
+      ],
+      "options": [
+        {
+          "code": "DRY",
+          "name": "Refrigerated air dryer",
+          "additional_price_eur": 1230,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "dryer_included": true,
+            "pressure_dew_point_c": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "PLC-001",
+      "name": "LogicBridge L8",
+      "category": "industrial_controller",
+      "specifications": {
+        "digital_inputs": 8,
+        "digital_outputs": 6,
+        "analog_inputs": 0,
+        "supply_voltage_v_dc": 24,
+        "supported_protocols": [
+          "Modbus_RTU"
+        ],
+        "operating_temperature_range_c": [
+          -10,
+          55
+        ],
+        "ingress_protection": "IP20",
+        "safety_rated": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 190,
+        "standard_lead_time_weeks": 1,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "installation",
+          "description": "Requires a suitable enclosure for wet or dusty environments."
+        },
+        {
+          "type": "functional_safety",
+          "description": "Not suitable as the sole controller of an emergency-stop or other safety function."
+        }
+      ]
+    },
+    {
+      "id": "PLC-002",
+      "name": "LogicBridge L16",
+      "category": "industrial_controller",
+      "specifications": {
+        "digital_inputs": 16,
+        "digital_outputs": 8,
+        "analog_inputs": 2,
+        "supply_voltage_v_dc": 24,
+        "supported_protocols": [
+          "Modbus_RTU",
+          "Modbus_TCP"
+        ],
+        "operating_temperature_range_c": [
+          -10,
+          55
+        ],
+        "ingress_protection": "IP20",
+        "safety_rated": false,
+        "analog_input_signals": [
+          "4-20_mA",
+          "0-10_V"
+        ]
+      },
+      "commercial": {
+        "base_unit_price_eur": 350,
+        "standard_lead_time_weeks": 2,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "installation",
+          "description": "Requires a suitable enclosure for wet or dusty environments."
+        },
+        {
+          "type": "functional_safety",
+          "description": "Not suitable as the sole controller of an emergency-stop or other safety function."
+        }
+      ]
+    },
+    {
+      "id": "PLC-003",
+      "name": "LogicBridge L24",
+      "category": "industrial_controller",
+      "specifications": {
+        "digital_inputs": 24,
+        "digital_outputs": 16,
+        "analog_inputs": 4,
+        "supply_voltage_v_dc": 24,
+        "supported_protocols": [
+          "Modbus_TCP",
+          "EtherNet_IP"
+        ],
+        "operating_temperature_range_c": [
+          -10,
+          55
+        ],
+        "ingress_protection": "IP20",
+        "safety_rated": false,
+        "analog_input_signals": [
+          "4-20_mA",
+          "0-10_V"
+        ]
+      },
+      "commercial": {
+        "base_unit_price_eur": 620,
+        "standard_lead_time_weeks": 3,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "installation",
+          "description": "Requires a suitable enclosure for wet or dusty environments."
+        },
+        {
+          "type": "functional_safety",
+          "description": "Not suitable as the sole controller of an emergency-stop or other safety function."
+        }
+      ]
+    },
+    {
+      "id": "PLC-004",
+      "name": "LogicBridge L32",
+      "category": "industrial_controller",
+      "specifications": {
+        "digital_inputs": 32,
+        "digital_outputs": 24,
+        "analog_inputs": 8,
+        "supply_voltage_v_dc": 24,
+        "supported_protocols": [
+          "Modbus_TCP",
+          "PROFINET"
+        ],
+        "operating_temperature_range_c": [
+          -10,
+          55
+        ],
+        "ingress_protection": "IP20",
+        "safety_rated": false,
+        "analog_input_signals": [
+          "4-20_mA",
+          "0-10_V"
+        ],
+        "maximum_expansion_modules": 8
+      },
+      "commercial": {
+        "base_unit_price_eur": 1100,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "installation",
+          "description": "Requires a suitable enclosure for wet or dusty environments."
+        },
+        {
+          "type": "functional_safety",
+          "description": "Not suitable as the sole controller of an emergency-stop or other safety function."
+        }
+      ],
+      "options": [
+        {
+          "code": "AI4",
+          "name": "Four-channel analog expansion",
+          "additional_price_eur": 180,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "additional_analog_inputs": 4,
+            "analog_input_signals": [
+              "4-20_mA",
+              "0-10_V"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "PLC-005",
+      "name": "LogicBridge L48",
+      "category": "industrial_controller",
+      "specifications": {
+        "digital_inputs": 48,
+        "digital_outputs": 32,
+        "analog_inputs": 12,
+        "supply_voltage_v_dc": 24,
+        "supported_protocols": [
+          "Modbus_TCP",
+          "PROFINET",
+          "OPC_UA"
+        ],
+        "operating_temperature_range_c": [
+          -10,
+          55
+        ],
+        "ingress_protection": "IP20",
+        "safety_rated": false,
+        "analog_input_signals": [
+          "4-20_mA",
+          "0-10_V"
+        ],
+        "maximum_expansion_modules": 8
+      },
+      "commercial": {
+        "base_unit_price_eur": 1800,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "installation",
+          "description": "Requires a suitable enclosure for wet or dusty environments."
+        },
+        {
+          "type": "functional_safety",
+          "description": "Not suitable as the sole controller of an emergency-stop or other safety function."
+        }
+      ],
+      "options": [
+        {
+          "code": "AI4",
+          "name": "Four-channel analog expansion",
+          "additional_price_eur": 180,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "additional_analog_inputs": 4,
+            "analog_input_signals": [
+              "4-20_mA",
+              "0-10_V"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "CNV-001",
+      "name": "MoveLine B1",
+      "category": "belt_conveyor",
+      "specifications": {
+        "conveyor_length_m": 1,
+        "belt_width_mm": 200,
+        "maximum_distributed_load_kg": 20,
+        "maximum_single_item_mass_kg": 5,
+        "belt_speed_range_m_s": [
+          0.05,
+          0.5
+        ],
+        "belt_material": "PVC",
+        "frame_material": "aluminium",
+        "supply_voltage_v_ac": 230,
+        "operating_temperature_range_c": [
+          5,
+          40
+        ],
+        "washdown_suitable": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 1400,
+        "standard_lead_time_weeks": 4,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "load_conditions",
+          "description": "Load ratings apply to horizontal transport only; inclined transport requires engineering review."
+        },
+        {
+          "type": "installation",
+          "description": "Machine guarding and emergency-stop integration are not included in the base price."
+        }
+      ],
+      "options": [
+        {
+          "code": "SPD",
+          "name": "Extended speed range",
+          "additional_price_eur": 250,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "belt_speed_range_m_s": [
+              0.05,
+              1.0
+            ],
+            "maximum_distributed_load_kg": 10
+          }
+        },
+        {
+          "code": "GUIDE",
+          "name": "Adjustable side guides",
+          "additional_price_eur": 120,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "side_guides_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "CNV-002",
+      "name": "MoveLine B2",
+      "category": "belt_conveyor",
+      "specifications": {
+        "conveyor_length_m": 2,
+        "belt_width_mm": 300,
+        "maximum_distributed_load_kg": 40,
+        "maximum_single_item_mass_kg": 10,
+        "belt_speed_range_m_s": [
+          0.05,
+          0.5
+        ],
+        "belt_material": "PVC",
+        "frame_material": "aluminium",
+        "supply_voltage_v_ac": 230,
+        "operating_temperature_range_c": [
+          5,
+          40
+        ],
+        "washdown_suitable": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 2200,
+        "standard_lead_time_weeks": 5,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "load_conditions",
+          "description": "Load ratings apply to horizontal transport only; inclined transport requires engineering review."
+        },
+        {
+          "type": "installation",
+          "description": "Machine guarding and emergency-stop integration are not included in the base price."
+        }
+      ],
+      "options": [
+        {
+          "code": "SPD",
+          "name": "Extended speed range",
+          "additional_price_eur": 350,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "belt_speed_range_m_s": [
+              0.05,
+              1.0
+            ],
+            "maximum_distributed_load_kg": 20
+          }
+        },
+        {
+          "code": "GUIDE",
+          "name": "Adjustable side guides",
+          "additional_price_eur": 170,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "side_guides_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "CNV-003",
+      "name": "MoveLine B3",
+      "category": "belt_conveyor",
+      "specifications": {
+        "conveyor_length_m": 3,
+        "belt_width_mm": 400,
+        "maximum_distributed_load_kg": 80,
+        "maximum_single_item_mass_kg": 20,
+        "belt_speed_range_m_s": [
+          0.05,
+          0.5
+        ],
+        "belt_material": "PU",
+        "frame_material": "aluminium",
+        "supply_voltage_v_ac": 400,
+        "operating_temperature_range_c": [
+          5,
+          40
+        ],
+        "washdown_suitable": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 3400,
+        "standard_lead_time_weeks": 6,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "load_conditions",
+          "description": "Load ratings apply to horizontal transport only; inclined transport requires engineering review."
+        },
+        {
+          "type": "installation",
+          "description": "Machine guarding and emergency-stop integration are not included in the base price."
+        }
+      ],
+      "options": [
+        {
+          "code": "SPD",
+          "name": "Extended speed range",
+          "additional_price_eur": 450,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "belt_speed_range_m_s": [
+              0.05,
+              1.0
+            ],
+            "maximum_distributed_load_kg": 40
+          }
+        },
+        {
+          "code": "GUIDE",
+          "name": "Adjustable side guides",
+          "additional_price_eur": 220,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "side_guides_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "CNV-004",
+      "name": "MoveLine B4",
+      "category": "belt_conveyor",
+      "specifications": {
+        "conveyor_length_m": 4,
+        "belt_width_mm": 500,
+        "maximum_distributed_load_kg": 120,
+        "maximum_single_item_mass_kg": 30,
+        "belt_speed_range_m_s": [
+          0.05,
+          0.5
+        ],
+        "belt_material": "PU",
+        "frame_material": "stainless_steel_304",
+        "supply_voltage_v_ac": 400,
+        "operating_temperature_range_c": [
+          5,
+          40
+        ],
+        "washdown_suitable": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 4900,
+        "standard_lead_time_weeks": 7,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "load_conditions",
+          "description": "Load ratings apply to horizontal transport only; inclined transport requires engineering review."
+        },
+        {
+          "type": "installation",
+          "description": "Machine guarding and emergency-stop integration are not included in the base price."
+        }
+      ],
+      "options": [
+        {
+          "code": "SPD",
+          "name": "Extended speed range",
+          "additional_price_eur": 550,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "belt_speed_range_m_s": [
+              0.05,
+              1.0
+            ],
+            "maximum_distributed_load_kg": 60
+          }
+        },
+        {
+          "code": "GUIDE",
+          "name": "Adjustable side guides",
+          "additional_price_eur": 270,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "side_guides_included": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "CNV-005",
+      "name": "MoveLine B6",
+      "category": "belt_conveyor",
+      "specifications": {
+        "conveyor_length_m": 6,
+        "belt_width_mm": 600,
+        "maximum_distributed_load_kg": 200,
+        "maximum_single_item_mass_kg": 40,
+        "belt_speed_range_m_s": [
+          0.05,
+          0.5
+        ],
+        "belt_material": "PU",
+        "frame_material": "stainless_steel_304",
+        "supply_voltage_v_ac": 400,
+        "operating_temperature_range_c": [
+          5,
+          40
+        ],
+        "washdown_suitable": false
+      },
+      "commercial": {
+        "base_unit_price_eur": 7200,
+        "standard_lead_time_weeks": 9,
+        "minimum_order_quantity": 1,
+        "warranty_months": 12
+      },
+      "constraints": [
+        {
+          "type": "load_conditions",
+          "description": "Load ratings apply to horizontal transport only; inclined transport requires engineering review."
+        },
+        {
+          "type": "installation",
+          "description": "Machine guarding and emergency-stop integration are not included in the base price."
+        }
+      ],
+      "options": [
+        {
+          "code": "SPD",
+          "name": "Extended speed range",
+          "additional_price_eur": 650,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "belt_speed_range_m_s": [
+              0.05,
+              1.0
+            ],
+            "maximum_distributed_load_kg": 100
+          }
+        },
+        {
+          "code": "GUIDE",
+          "name": "Adjustable side guides",
+          "additional_price_eur": 320,
+          "additional_lead_time_weeks": 1,
+          "changes": {
+            "side_guides_included": true
+          }
+        }
+      ]
+    }
+  ]
+}
